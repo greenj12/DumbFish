@@ -72,6 +72,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 ### Sources
 #### Chess Stuff
 https://www.freecodecamp.org/news/simple-chess-ai-step-by-step-1d55a9266977/
+https://react-chessboard.com/
 #### Shamelessly stolen components
 https://codepen.io/bbodine1/pen/DqdMRy
 https://www.robinwieruch.de/react-dropdown/

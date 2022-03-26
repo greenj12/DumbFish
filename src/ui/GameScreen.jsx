@@ -1,5 +1,5 @@
 import React, {useState, useEffect, useReducer} from 'react';
-import Chessboard from 'chessboardjsx';
+import { Chessboard } from "react-chessboard";
 import Chess from 'chess.js';
 import Player from '../player';
 
@@ -76,6 +76,7 @@ function reducer(state, action) {
 }
 
 const GameScreen = () => {
+	const [boardWidth, setBoardWidth] = useState(undefined);
 	const [state, dispatch] = useReducer(
 		(state, action) => Object.assign({}, state, reducer(state, action)), 
 		initialState);
@@ -114,6 +115,18 @@ const GameScreen = () => {
 	// 	if (!allowMove) return;
 	// 	// console.log(square);
 	// };
+
+	// from the examples on react-chessboard.com
+	useEffect(() => {
+    	function handleResize() {
+    		const display = document.getElementsByClassName('game-screen')[0];
+    		setBoardWidth(display.offsetWidth);
+    	}
+
+    	window.addEventListener('resize', handleResize);
+    	handleResize();
+    	return () => window.removeEventListener('resize', handleResize);
+	}, []);
 
 	useEffect(() => {
 		const player = state.turn === 'w' ? state.white : state.black;
@@ -183,13 +196,15 @@ const GameScreen = () => {
 				reset={reset}
 			/>
 			<Chessboard
-		 		draggable={state.draggable}
+				//calcWidth={({screenWidth, screenHeight}) => {return min(560, screenWidth - 16)}}
+		 		arePiecesDraggable={state.draggable}
+		 		boardWidth={boardWidth}
 		 		// allowDrag={allowDrag}
 		 		// onMouseOverSquare={onMouseOverSquare}
 		 		// onSquareClick={(s) => this.onSquareClick(s)}
 		 		position={state.fen}
-		 		squareStyles={state.squareStyles}
-		 		onDrop={onDrop}
+		 		//squareStyles={state.squareStyles}
+		 		onPieceDrop={onDrop}
 		 	/>
 		</div>
 	);

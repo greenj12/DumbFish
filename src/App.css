@@ -37,6 +37,11 @@ html {
   width: 100%;
 }
 
-.panel-header{
+.panel-header {
   padding: 4px;
+}
+
+.game-screen {
+  width: min(100%, 560px);
+  margin: 8px;
 }
