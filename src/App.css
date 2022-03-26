@@ -1,0 +1,42 @@
+html {
+  background-color: #282c34;
+}
+
+.App {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.App-header {  
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.floating-panel {
+  width: 180px;
+  position: absolute;
+  border-radius: 8px;
+  padding: 16px;
+  margin: auto;
+  left: 0;
+  right: 0;
+  text-align: center;
+}
+
+.panel, .floating-panel {
+  background-color: white;
+  z-index: 7;
+}
+
+.button-primary {
+  padding: 6px;
+  font-size: x-large;
+  width: 100%;
+}
+
+.panel-header{
+  padding: 4px;
+}
