@@ -93,7 +93,7 @@ const GameScreen = () => {
 		});
 	};
 
-	const onDrop = ({sourceSquare, targetSquare, piece}) => {
+	const onDrop = (sourceSquare, targetSquare, piece) => {
 		const move = state.game.move({
 	    	from: sourceSquare,
 	    	to: targetSquare,
